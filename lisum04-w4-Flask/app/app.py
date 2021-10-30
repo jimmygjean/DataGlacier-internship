@@ -9,7 +9,6 @@ from keras.applications.vgg16 import decode_predictions
 from keras.preprocessing.image import load_img, img_to_array
 from utils.helper_functions import allowed_file
 
-
 UPLOAD_FOLDER = 'images'
 model = VGG16()
 
@@ -19,7 +18,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 @app.route('/', methods=['GET', 'POST'])
 def predict():
     """The user is provided with an interface where
-    they can upload an image. After submission,
+    he/she can upload an image. After submission,
     a deep learning model is used to make a prediction
     of what the image could be. The result is then sent to
     the user.
