@@ -6,3 +6,4 @@ Projects related to internship at Data Glacier
 * Week 2: Exploratory Data Analysis
 * Week 3: Exploratory Data Analysis
 * Week 4: Deployment on Flask
+* Week 5: Cloud and API deployment
