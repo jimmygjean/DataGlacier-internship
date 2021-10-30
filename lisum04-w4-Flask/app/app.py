@@ -3,14 +3,20 @@ import os
 from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
 
-from keras.applications.vgg16 import VGG16
-from keras.applications.vgg16 import preprocess_input
-from keras.applications.vgg16 import decode_predictions
+from keras.applications.mobilenet import MobileNet
+from keras.applications.mobilenet import preprocess_input
+from keras.applications.mobilenet import decode_predictions
 from keras.preprocessing.image import load_img, img_to_array
+from keras.models import load_model
 from utils.helper_functions import allowed_file
 
 UPLOAD_FOLDER = 'images'
-model = VGG16()
+saved_model = 'model/model.h5'
+if os.path.exists(saved_model):
+    model = load_model(saved_model)
+else:
+    model = MobileNet()
+    model.save(saved_model)
 
 app = Flask(__name__, template_folder='templates')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
