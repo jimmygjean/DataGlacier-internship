@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Image Classifier</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+
+    <body>
+        <h2 class='text-center'>Image Classifier</h2>
+        <br>
+        <h5 class="text-center">Input the image you wish to classify</h5>
+
+        <form class="p-3 text-center" action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
+            <input class="form-control" type="file" name="imagefile">
+            <input class="btn btn-primary mt-3" type="submit" value="Predict Image">
+        </form>
+
+        {% if out_message %}
+            <p class="text-center"> {{out_message}}</p>
+        {% endif %}
+    </body>
+</html>
